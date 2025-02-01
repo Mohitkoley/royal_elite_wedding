@@ -1,15 +1,32 @@
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 import quoteImage from '../images/quote.png';
 
 const Enquiry = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ triggerOnce: true });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
+
+  const variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  };
+
   return (
     <>
       <motion.div
-        className="main-container w-full h-auto bg-[#3d3a23] relative mx-auto my-0 px-16 py-16"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      ref={ref}
+      className="main-container w-full h-auto bg-[#3d3a23] relative mx-auto my-0 px-16 py-16"
+      initial="hidden"
+      animate={controls}
+      variants={variants}
+    >
         <motion.span
           className="flex w-full h-auto justify-center items-center font-['Inter'] text-[16px] font-normal leading-[19px] text-[#fff] relative text-center uppercase whitespace-nowrap mt-[0.17px] mr-0 mb-0 ml-0"
           initial={{ x: -100 }}

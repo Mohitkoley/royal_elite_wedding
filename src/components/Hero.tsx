@@ -30,13 +30,16 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p
-          className="font-playfair text-lg md:text-2xl max-w-4xl mx-auto"
+          className="font-playfair text-lg md:text-2xl flex flex-col items-center max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
         >
           {/* Add the mandala SVG */}
           <img src={mandala} alt="Mandala" className="w-24 h-24 mt-4" />
+          <span className="mt-4">
+            At Royal Elite Wedding, we specialize in creating unforgettable celebrations, turning your dreams into reality.
+          </span>
         </motion.p>
       </div>
     </div>
