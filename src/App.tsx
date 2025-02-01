@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,8 +10,28 @@ import Footer from './components/Footer';
 import Logo from "./images/logo.png";
 // import LogoRE from "./images/logo-RE.png"
 import NewsletterSubscribe from './components/NewsletterSubscribe';
+import Enquiry from './components/Enquiry';
+import './loader.css';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Simulate a 2-second loading time
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#f7e7ce] flex items-center justify-center">
+        <div className="loader"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#f7e7ce]">
       {/* Header */}
@@ -46,6 +67,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
+      <Enquiry />
       <Gallery />
       <Services />
       <Pricing />
