@@ -6,7 +6,8 @@ import Services from './components/Services';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
-import Logo from "./images/logo.png";
+// import Logo from "./images/logo.png";
+import LogoRE from "./images/logo-RE.png";
 import NewsletterSubscribe from './components/NewsletterSubscribe';
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
       <header className="bg-[#a48244] text-white">
         <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
           <div className="w-[180px] md:w-[224px]">
-            <img src={Logo} alt="Royal Elite Events" className="w-30 h-auto" />
+            <img src={LogoRE} alt="Royal Elite Events" className="w-30 h-auto" />
           </div>
           
           <div className="flex flex-col justify-between md:flex-row gap-6 mt-4 md:mt-0">

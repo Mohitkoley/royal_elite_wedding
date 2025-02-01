@@ -23,9 +23,9 @@ const Hero = () => {
 
       {/* Decorative Elements */}
       <div className="mt-8 w-[403px] max-w-full h-px bg-white/20" />
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <img src="/decorative-element.png" alt="" className="w-32 h-32" />
-      </div>
+      </div> */}
     </div>
   </div>
   )
