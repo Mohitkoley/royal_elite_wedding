@@ -1,39 +1,6 @@
-import React from 'react';
+import GalleryData from '../utilities/GalleryData';
 
-const galleryImages = [
-  {
-    url: 'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3',
-    title: 'Traditional Wedding'
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3',
-    title: 'Wedding Celebration'
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3',
-    title: 'Wedding Decoration'
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3',
-    title: 'Wedding Ceremony'
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1517722014278-c256a91a6fba?ixlib=rb-4.0.3',
-    title: 'Wedding Reception'
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1509927083803-4bd519298ac4?ixlib=rb-4.0.3',
-    title: 'Wedding Details'
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3',
-    title: 'Wedding Moments'
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3',
-    title: 'Wedding Planning'
-  }
-];
+const galleryImages = GalleryData;
 
 function Gallery() {
   return (
@@ -55,7 +22,7 @@ function Gallery() {
               className="group relative h-[300px] overflow-hidden rounded-lg shadow-lg"
             >
               <img
-                src={image.url}
+                src={image.img}
                 alt={image.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
