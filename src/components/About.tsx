@@ -5,6 +5,7 @@ import leaf1 from '../images/leaf1.png';
 import leaf2 from '../images/leaf2.png';
 import FloralCorner from '../images/floral-corner.png';
 import AboutImage from "../images/About.png";
+import aboutbottom from "../images/about-bottom.png";
 
 const About = () => {
   const ref = useRef(null);
@@ -60,7 +61,7 @@ const About = () => {
               transition={{ duration: 0.5 }}
             >
               <motion.span 
-                className="text-center lg:text-left font-inter text-base uppercase tracking-[3px] text-gray-600 mb-4"
+                className="text-center font-inter text-base uppercase tracking-[3px] text-gray-600 mb-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isInView ? 1 : 0 }}
                 transition={{ delay: 0.2 }}
@@ -69,23 +70,25 @@ const About = () => {
               </motion.span>
               
               <motion.h2 
-                className="font-playfair text-3xl lg:text-4xl text-center lg:text-left text-gray-900 mb-6"
+                className="font-playfair text-3xl lg:text-4xl text-center text-gray-900 mb-6"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isInView ? 1 : 0 }}
                 transition={{ delay: 0.4 }}
               >
-                Designing Your Perfect Wedding Day
+                Designing Your Perfect <br /> Wedding Day
               </motion.h2>
 
-              <motion.div 
-                className="w-24 h-1 bg-primary mx-auto lg:mx-0 mb-6"
+                <motion.div 
+                className="w-24 mx-auto mt-2"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: isInView ? 1 : 0 }}
                 transition={{ delay: 0.6 }}
-              />
+                >
+                <img src={aboutbottom} alt="" className='w-30 mx-auto' />
+                </motion.div>
 
               <motion.p 
-                className="font-playfair text-base lg:text-lg text-gray-700 text-center lg:text-left mb-8"
+                className="font-playfair text-base lg:text-lg text-gray-700 text-center mt-8 mb-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isInView ? 1 : 0 }}
                 transition={{ delay: 0.8 }}
@@ -97,7 +100,7 @@ const About = () => {
               </motion.p>
 
               <motion.button 
-                className="btn btn-primary group self-center lg:self-start"
+                className="btn btn-primary rounded-md group self-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isInView ? 1 : 0 }}
                 transition={{ delay: 1 }}
