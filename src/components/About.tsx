@@ -6,12 +6,12 @@ import leaf2 from '../images/leaf2.png';
 import FloralCorner from '../images/floral-corner.png';
 import AboutImage from "../images/About.png";
 
-function About() {
+const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section className="relative bg-cream py-16 md:py-24" ref={ref}>
+    <section ref={ref} className="relative bg-cream py-16 md:py-24">
       {/* Decorative Pattern */}
       <div className="pattern-border w-full h-10 absolute top-0" />
       
@@ -53,29 +53,59 @@ function About() {
               </motion.div>
             </div>
             {/* Content Section */}
-            <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
-              <span className="text-center lg:text-left font-inter text-base uppercase tracking-[3px] text-gray-600 mb-4">
+            <motion.div 
+              className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.span 
+                className="text-center lg:text-left font-inter text-base uppercase tracking-[3px] text-gray-600 mb-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isInView ? 1 : 0 }}
+                transition={{ delay: 0.2 }}
+              >
                 About Us
-              </span>
+              </motion.span>
               
-              <h2 className="font-playfair text-3xl lg:text-4xl text-center lg:text-left text-gray-900 mb-6">
+              <motion.h2 
+                className="font-playfair text-3xl lg:text-4xl text-center lg:text-left text-gray-900 mb-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isInView ? 1 : 0 }}
+                transition={{ delay: 0.4 }}
+              >
                 Designing Your Perfect Wedding Day
-              </h2>
+              </motion.h2>
 
-              <div className="w-24 h-1 bg-primary mx-auto lg:mx-0 mb-6" />
+              <motion.div 
+                className="w-24 h-1 bg-primary mx-auto lg:mx-0 mb-6"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: isInView ? 1 : 0 }}
+                transition={{ delay: 0.6 }}
+              />
 
-              <p className="font-playfair text-base lg:text-lg text-gray-700 text-center lg:text-left mb-8">
+              <motion.p 
+                className="font-playfair text-base lg:text-lg text-gray-700 text-center lg:text-left mb-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isInView ? 1 : 0 }}
+                transition={{ delay: 0.8 }}
+              >
                 At Royal Elite Wedding, we specialize in creating unforgettable celebrations, 
                 turning your dreams into reality. Whether you're planning an extravagant wedding 
                 or a sophisticated corporate event, our dedicated team ensures that every detail 
                 is flawlessly executed.
-              </p>
+              </motion.p>
 
-              <button className="btn btn-primary group self-center lg:self-start">
+              <motion.button 
+                className="btn btn-primary group self-center lg:self-start"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isInView ? 1 : 0 }}
+                transition={{ delay: 1 }}
+              >
                 Get Started
                 <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </div>
         </div>
       </div>
