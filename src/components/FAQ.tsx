@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const faqs = [
@@ -71,4 +71,5 @@ function FAQ() {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default FAQ;

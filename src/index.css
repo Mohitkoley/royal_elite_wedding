@@ -7,10 +7,25 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: calc(100px + 60px); /* header + navbar height */
+    @apply scroll-smooth;
   }
   
   body {
     @apply font-inter text-base;
+  }
+  
+  @media (max-width: 768px) {
+    html {
+      scroll-padding-top: 140px; /* Adjusted for mobile */
+    }
+  }
+}
+
+/* For Safari and iOS support */
+@supports (-webkit-overflow-scrolling: touch) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
@@ -51,8 +66,145 @@
   height: 20px;
 }
 
-/* Indian Traditional Patterns */
+/* Hindu Traditional Pattern */
 .pattern-border {
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0c11.046 0 20 8.954 20 20s-8.954 20-20 20S0 31.046 0 20 8.954 0 20 0z' fill='%23a48244' fill-opacity='.1'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
+  background: linear-gradient(to right, #B6965B05, #B6965B15);
+  position: relative;
+  overflow: hidden;
+  height: 30px;
 }
+
+/* Main Pattern Layer */
+.pattern-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 5l4 7-4 7-4-7 4-7zm10 0l4 7-4 7-4-7 4-7zm-20 0l4 7-4 7-4-7 4-7z' fill='%23B6965B' fill-opacity='0.4'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  animation: infinitePatternMove 20s linear infinite;
+  opacity: 0.8;
+  width: 200%;
+}
+
+/* Overlay Pattern */
+.pattern-border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='30' viewBox='0 0 60 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 2l2 3-2 3-2-3 2-3zm15 0l2 3-2 3-2-3 2-3zM15 2l2 3-2 3-2-3 2-3z' fill='%23D4AF37' fill-opacity='0.3'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  animation: infinitePatternMoveReverse 25s linear infinite;
+  opacity: 0.6;
+  width: 200%;
+}
+
+@keyframes infinitePatternMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes infinitePatternMoveReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Hover Effects */
+.pattern-border:hover::before {
+  animation-duration: 15s;
+}
+
+.pattern-border:hover::after {
+  animation-duration: 20s;
+}
+
+/* Add a third layer for more depth */
+.pattern-border > div {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='2' fill='%23B6965B' fill-opacity='0.2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  animation: infinitePatternMove 30s linear infinite;
+  opacity: 0.4;
+  width: 200%;
+}
+
+/* Add subtle gradient overlay */
+.pattern-border::before,
+.pattern-border::after,
+.pattern-border > div {
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+/* Testimonials Swiper Styles */
+.testimonials-swiper {
+  padding: 2rem 0 4rem 0;
+}
+
+.testimonials-swiper .swiper-slide {
+  width: 400px;
+  height: auto;
+}
+
+.testimonials-swiper .swiper-pagination-bullet {
+  background: #B6965B;
+  opacity: 0.5;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .testimonials-swiper .swiper-slide {
+    width: 300px;
+  }
+}
+
+/* Progress Bar Animation */
+@keyframes progress {
+  from {
+    width: 0;
+  }
+}
+
+/* Active Section Highlight Animation */
+.active-nav-link {
+  position: relative;
+}
+
+.active-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ee959e;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.active-nav-link:hover::after,
+.active-nav-link.active::after {
+  transform: scaleX(1);
+}
+

@@ -12,6 +12,8 @@ import Logo from "./images/logo.png";
 import NewsletterSubscribe from './components/NewsletterSubscribe';
 import Enquiry from './components/Enquiry';
 import './loader.css';
+import Contact from './components/Contact';
+import Testimonials from './components/Testimonials';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -65,14 +67,50 @@ function App() {
         </div>
       </header> 
       <Navbar />
-      <Hero />
-      <About />
-      <Enquiry />
-      <Gallery />
-      <Services />
-      <Pricing />
-      <FAQ />
-      <NewsletterSubscribe />
+      
+      <section id="hero">
+        <Hero />
+      </section>
+      
+      <section id="about">
+        <About />
+      </section>
+      
+      <section id="enquiry">
+        <Enquiry />
+      </section>
+      
+      <section id="gallery">
+        <Gallery />
+      </section>
+      
+      <section id="services">
+        <Services />
+      </section>
+      
+      <section id="pricing">
+        <Pricing />
+      </section>
+      
+      <section 
+        id="testimonials" 
+        className="scroll-mt-20"
+      >
+        <Testimonials />
+      </section>
+      
+      <section id="faq">
+        <FAQ />
+      </section>
+      
+      <section id="contact">
+        <Contact />
+      </section>
+      
+      <section id="newsletter">
+        <NewsletterSubscribe />
+      </section>
+      
       <Footer />
     </div>
   );
