@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import mandala from "../images/mandala.svg";
+import Logo from "../images/logo.png";
 
 const Hero = () => {
   return (
@@ -7,6 +8,11 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 bg-cover bg-center bg-[url('/src/images/Hero.png')]">
         <div className="absolute inset-0 bg-black/65" />
+      </div>
+
+      {/* Logo */}
+      <div className="relative z-10 px-6">
+        <img src={Logo} alt="Royal Elite Wedding Logo" className="w-32 h-auto" />
       </div>
 
       {/* Content */}
