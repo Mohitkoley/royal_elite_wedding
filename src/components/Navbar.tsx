@@ -1,20 +1,35 @@
 import { ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useActiveSection } from '../hooks/useActiveSection';
+import { Link, useLocation } from 'react-router-dom';
 
 const navItems = [
-  { label: 'Home', scrollTo: 'hero' },
-  { label: 'About Us', scrollTo: 'about' },
-  { label: 'Services', scrollTo: 'services', hasDropdown: true },
-  { label: 'Testimonials', scrollTo: 'testimonials' },
-  { label: 'Gallery', scrollTo: 'gallery' },
-  { label: 'Contact Us', scrollTo: 'contact' }
+  { label: 'Home', scrollTo: 'hero', path: '/' },
+  { label: 'About Us', scrollTo: 'about', path: '/' },
+  { 
+    label: 'Services', 
+    scrollTo: '', 
+    path: '/services',
+    hasDropdown: true,
+    dropdownItems: [
+      { label: 'Wedding Planning', path: '/services/wedding-planning' },
+      { label: 'Corporate Events', path: '/services/corporate-events' },
+      { label: 'Social Celebrations', path: '/services/social-celebrations' },
+      { label: 'Decor & Design', path: '/services/decor-design' }
+    ]
+  },
+  { label: 'Blog', scrollTo: '', path: '/blog' },
+  { label: 'Testimonials', scrollTo: '', path: '/testimonials' },
+  { label: 'Gallery', scrollTo: 'gallery', path: '/' },
+  { label: 'Contact Us', scrollTo: '', path: '/contact' }
 ];
 
 function Navbar() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const activeSection = useActiveSection();
+  const location = useLocation();
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +42,17 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (scrollTo?: string) => {
+  const handleNavClick = (scrollTo?: string, path?: string) => {
+    if (path === '/contact') {
+      setIsMobileMenuOpen(false);
+      return; // Let the Link component handle the navigation
+    }
+
+    if (path === '/' && location.pathname !== '/') {
+      // If we're not on the home page, don't try to scroll
+      return;
+    }
+
     if (scrollTo) {
       const element = document.getElementById(scrollTo);
       const navbar = document.querySelector('nav');
@@ -72,9 +97,15 @@ function Navbar() {
           ${isMobileMenuOpen ? 'block' : 'hidden'} md:flex
         `}>
           {navItems.map((item, index) => (
-            <li key={index} className="relative group">
-              <button
-                onClick={() => handleNavClick(item.scrollTo)}
+            <li 
+              key={index} 
+              className="relative group"
+              onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.label)}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <Link
+                to={item.path}
+                onClick={() => handleNavClick(item.scrollTo, item.path)}
                 className={`
                   flex items-center gap-1 font-playfair tracking-[3px] text-sm uppercase py-2
                   transition-colors duration-300
@@ -83,7 +114,25 @@ function Navbar() {
               >
                 {item.label}
                 {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
-              </button>
+              </Link>
+              
+              {item.hasDropdown && activeDropdown === item.label && (
+                <div className="absolute top-full left-0 w-64 bg-white shadow-lg rounded-md overflow-hidden py-2 z-50">
+                  {item.dropdownItems?.map((dropdownItem, idx) => (
+                    <Link
+                      key={idx}
+                      to={dropdownItem.path}
+                      className="block px-4 py-2 text-gray-800 hover:bg-primary/10 hover:text-primary-dark transition-colors duration-200"
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      {dropdownItem.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </li>
           ))}
         </ul>

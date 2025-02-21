@@ -2,7 +2,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import quoteImage from '../images/quote.png';
-import Swastik from './Swastik';
+import Design from '../images/design.svg';
 
 const Enquiry = () => {
   const controls = useAnimation();
@@ -32,8 +32,18 @@ const Enquiry = () => {
           transition: { duration: 0.3 }
         }}
       >
-        <Swastik className="top-8 left-8" color="#ffffff" />
-        <Swastik className="bottom-8 right-8" size={50} color="#ffffff" />
+        <img 
+          src={Design} 
+          alt="" 
+          className='absolute w-28 h-28 top-12 left-12' 
+          style={{ filter: 'brightness(0) invert(1)' }} 
+        />
+        <img 
+          src={Design} 
+          alt="" 
+          className='absolute w-28 h-28 bottom-12 right-12' 
+          style={{ filter: 'brightness(0) invert(1)' }} 
+        />
 
         <motion.span
           className="flex w-full h-auto justify-center items-center font-['Inter'] text-[16px] font-normal leading-[19px] text-[#fff] relative text-center uppercase whitespace-nowrap mt-[0.17px] mr-0 mb-0 ml-0"

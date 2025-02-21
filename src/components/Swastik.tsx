@@ -15,7 +15,7 @@ const Swastik = ({ className = '', size = 40, color = '#D2042D' }: SwastikProps)
     animate: { 
       rotate: 360,
       transition: {
-        duration: 20,
+        duration: 20, 
         repeat: Infinity,
         ease: "linear"
       }

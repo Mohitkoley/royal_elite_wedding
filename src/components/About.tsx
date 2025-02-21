@@ -6,7 +6,7 @@ import leaf2 from '../images/leaf2.png';
 import FloralCorner from '../images/floral-corner.png';
 import AboutImage from "../images/About.png";
 import aboutbottom from "../images/about-bottom.png";
-import Swastik from './Swastik';
+import Design from "../images/design.svg";
 
 const About = () => {
   const ref = useRef(null);
@@ -17,9 +17,8 @@ const About = () => {
       {/* Decorative Pattern */}
       <div className="pattern-border w-full h-10 absolute top-0" />
       
-      {/* Add Swastik animations */}
-      <Swastik className="top-12 left-12" />
-      <Swastik className="bottom-12 right-12" size={50} />
+      <img src={Design} alt="" className='absolute w-28 h-28 top-12 left-12' />
+      <img src={Design} alt="" className='absolute w-28 h-28 bottom-12 right-12' />
       
       {/* Decorative Mandala with hover effect */}
       <motion.div 

@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
-import Swastik from './Swastik';
+import Design from '../images/design.svg';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -37,6 +37,20 @@ const testimonials = [
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
     quote: "Working with Royal Elite Events was a pleasure. They turned our vision into reality with such elegance and style.",
     rating: 5
+  },
+  {
+    name: "John & Sarah",
+    role: "Wedding Couple",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    quote: "Royale Elite Events exceeded our expectations with their creativity and attention to detail. Our wedding day was more beautiful than we could have imagined.",
+    rating: 5
+  },
+  {
+    name: "Raj & Priya",
+    role: "Wedding Couple",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    quote: "The team's professionalism and dedication to creating a perfect event was remarkable. Every detail was handled with care.",
+    rating: 5
   }
 ];
 
@@ -55,8 +69,8 @@ const Testimonials = () => {
       />
       
       {/* Swastik Decorations with enhanced positioning */}
-      <Swastik className="top-20 left-12" />
-      <Swastik className="bottom-20 right-12" size={50} />
+      <img src={Design} alt="" className='absolute w-28 h-28 top-12 left-12' />
+      <img src={Design} alt="" className='absolute w-28 h-28 bottom-12 right-12' />
 
       <div className="container mx-auto px-4">
         <motion.div 

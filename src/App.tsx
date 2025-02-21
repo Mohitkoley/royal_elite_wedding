@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Gallery from './components/Gallery';
-import Services from './components/Services';
-import Pricing from './components/Pricing';
-import FAQ from './components/FAQ';
-import Footer from './components/Footer';
-import Logo from "./images/logo.png";
-// import LogoRE from "./images/logo-RE.png"
-import NewsletterSubscribe from './components/NewsletterSubscribe';
-import Enquiry from './components/Enquiry';
 import './loader.css';
-import Contact from './components/Contact';
-import Testimonials from './components/Testimonials';
+import Header from './components/Header';
+import Home from './pages/Home';
+import ContactPage from './pages/ContactPage';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import TestimonialsPage from './pages/Testimonials';
+import ServicesPage from './pages/Services';
+import WeddingPlanning from './pages/services/WeddingPlanning';
+import CorporateEvents from './pages/services/CorporateEvents';
+import SocialCelebrations from './pages/services/SocialCelebrations';
+import DecorDesign from './pages/services/DecorDesign';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -35,84 +34,22 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f7e7ce]">
-      {/* Header */}
-      <header className="bg-[#a48244] text-white">
-        <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
-          <div className="w-[180px] md:w-[224px]">
-            <img src={Logo} alt="Royal Elite Events" className="w-30 h-auto" />
-          </div>
-          
-          <div className="flex flex-col justify-between md:flex-row gap-6 mt-4 md:mt-0">
-            <div className="flex items-center gap-2">
-              {/* <Phone className="w-5 h-5" /> */}
-              <div className="flex flex-col">
-                <span className="text-sm font-medium uppercase">Call Us</span>
-                <span className="text-base">+16465262336 - +15166054010</span>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              {/* <Mail className="w-5 h-5" /> */}
-              <div className="flex flex-col">
-                <span className="text-sm font-medium uppercase">Mail Us</span>
-                <span className="text-base">info@royaleliteevents.com</span>
-              </div>
-            </div>
-
-            <button className="border-2 border-white px-8 py-3 hover:bg-white hover:text-[#a48244] transition-colors">
-              BOOK APPOINTMENT
-            </button>
-          </div>
-        </div>
-      </header> 
+    <Router>
+      <Header />
       <Navbar />
-      
-      <section id="hero">
-        <Hero />
-      </section>
-      
-      <section id="about">
-        <About />
-      </section>
-      
-      <section id="enquiry">
-        <Enquiry />
-      </section>
-      
-      <section id="gallery">
-        <Gallery />
-      </section>
-      
-      <section id="services">
-        <Services />
-      </section>
-      
-      <section id="pricing">
-        <Pricing />
-      </section>
-      
-      <section 
-        id="testimonials" 
-        className="scroll-mt-20"
-      >
-        <Testimonials />
-      </section>
-      
-      <section id="faq">
-        <FAQ />
-      </section>
-      
-      <section id="contact">
-        <Contact />
-      </section>
-      
-      <section id="newsletter">
-        <NewsletterSubscribe />
-      </section>
-      
-      <Footer />
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/testimonials" element={<TestimonialsPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/wedding-planning" element={<WeddingPlanning />} />
+        <Route path="/services/corporate-events" element={<CorporateEvents />} />
+        <Route path="/services/social-celebrations" element={<SocialCelebrations />} />
+        <Route path="/services/decor-design" element={<DecorDesign />} />
+      </Routes>
+    </Router>
   );
 }
 
