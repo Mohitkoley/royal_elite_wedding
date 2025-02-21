@@ -46,7 +46,7 @@ const VenueGuide: React.FC = () => {
             className="mb-8"
           >
             <img
-              src="/images/blog/venue-guide.jpg"
+              src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3"
               alt="Wedding Venue Guide"
               className="w-full h-[400px] object-cover rounded-lg shadow-lg mb-8"
             />

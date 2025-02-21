@@ -15,21 +15,21 @@ const blogPosts: BlogPost[] = [
   {
     title: "Essential Checklist for Planning Your Dream Wedding",
     excerpt: "Planning a wedding involves numerous tasks, and it can be overwhelming. Here's a comprehensive checklist to keep you organized: 12-18 […]",
-    image: "/images/blog/wedding-checklist.jpg", // Add these images to your public folder
+    image: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6",
     date: "March 15, 2024",
     slug: "wedding-checklist"
   },
   {
     title: "A Complete Guide to Choosing the Perfect Venue",
     excerpt: "Selecting the right venue is one of the most important decisions in your wedding planning process. Here's a comprehensive guide […]",
-    image: "/images/blog/venue-guide.jpg",
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3",
     date: "March 10, 2024",
     slug: "venue-guide"
   },
   {
     title: "Top 5 Wedding Trends of 2024",
     excerpt: "As wedding trends evolve, couples are continually seeking fresh ideas to make their special day unique and memorable. Here are […]",
-    image: "/images/blog/wedding-trends.jpg",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622",
     date: "March 5, 2024",
     slug: "wedding-trends"
   }

@@ -102,7 +102,7 @@ const BlogPost: React.FC = () => {
                 className="mb-8"
               >
                 <img
-                  src="/images/blog/wedding-checklist.jpg"
+                  src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6"
                   alt="Wedding Planning Checklist"
                   className="w-full h-[400px] object-cover rounded-lg shadow-lg mb-8"
                 />
