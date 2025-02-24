@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import './loader.css';
 import Header from './components/Header';
 import Home from './pages/Home';
 import ContactPage from './pages/ContactPage';
@@ -13,26 +11,9 @@ import WeddingPlanning from './pages/services/WeddingPlanning';
 import CorporateEvents from './pages/services/CorporateEvents';
 import SocialCelebrations from './pages/services/SocialCelebrations';
 import DecorDesign from './pages/services/DecorDesign';
+import Gallery from './pages/Gallery';
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // Simulate a 2-second loading time
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[#f7e7ce] flex items-center justify-center">
-        <div className="loader"></div>
-      </div>
-    );
-  }
-
   return (
     <Router>
       <Header />
@@ -48,6 +29,7 @@ function App() {
         <Route path="/services/corporate-events" element={<CorporateEvents />} />
         <Route path="/services/social-celebrations" element={<SocialCelebrations />} />
         <Route path="/services/decor-design" element={<DecorDesign />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </Router>
   );

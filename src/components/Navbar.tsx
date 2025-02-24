@@ -20,7 +20,7 @@ const navItems = [
   },
   { label: 'Blog', scrollTo: '', path: '/blog' },
   { label: 'Testimonials', scrollTo: '', path: '/testimonials' },
-  { label: 'Gallery', scrollTo: 'gallery', path: '/' },
+  { label: 'Gallery', scrollTo: '', path: '/gallery' },
   { label: 'Contact Us', scrollTo: '', path: '/contact' }
 ];
 
