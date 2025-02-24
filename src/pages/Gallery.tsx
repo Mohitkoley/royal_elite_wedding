@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Footer from '../components/Footer';
 
 const galleryImages = [
   {
@@ -61,28 +62,27 @@ const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const categories = ['All', 'Wedding', 'Corporate', 'Social', 'Decor'];
 
-  const filteredImages = selectedCategory === 'All' 
-    ? galleryImages 
+  const filteredImages = selectedCategory === 'All'
+    ? galleryImages
     : galleryImages.filter(img => img.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-[#f7e7ce] py-16">
+    <> <div className="min-h-screen bg-[#f7e7ce] py-16">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-playfair text-center mb-8">
           Our Gallery
         </h1>
-        
+
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                selectedCategory === category
+              className={`px-6 py-2 rounded-full transition-all duration-300 ${selectedCategory === category
                   ? 'bg-[#ee959e] text-white'
                   : 'bg-white text-gray-700 hover:bg-[#ee959e] hover:text-white'
-              }`}
+                }`}
             >
               {category}
             </button>
@@ -92,8 +92,8 @@ const Gallery = () => {
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredImages.map((image) => (
-            <div 
-              key={image.id} 
+            <div
+              key={image.id}
               className="relative group overflow-hidden rounded-lg shadow-lg"
             >
               <div className="aspect-w-4 aspect-h-3">
@@ -123,6 +123,8 @@ const Gallery = () => {
         )}
       </div>
     </div>
+      <Footer />
+    </>
   );
 };
 

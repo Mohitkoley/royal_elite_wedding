@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin } from 'lucide-react';
-import FooterLogo from "../images/footer-logo.png";
+import FooterLogo from "../images/logo.png";
+
 function Footer() {
   return (
     <footer className="bg-primary-dark text-white">
@@ -9,7 +10,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Section */}
           <div>
-            <img src={FooterLogo} alt="Royal Elite Events" className="w-36 mb-6" />
+            <img src={FooterLogo} alt="Royal Elite Events" className="w-48 mb-6" />
             <p className="text-white/80 mb-6">
               At Royal Elite Events, we specialize in creating unforgettable celebrations, 
               turning your dreams into reality.
