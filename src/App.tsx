@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Home from './pages/Home';
+import WhatsAppButton from './components/WhatsAppButton';
 import ContactPage from './pages/ContactPage';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
@@ -31,6 +32,7 @@ function App() {
         <Route path="/services/decor-design" element={<DecorDesign />} />
         <Route path="/gallery" element={<Gallery />} />
       </Routes>
+      <WhatsAppButton />
     </Router>
   );
 }
